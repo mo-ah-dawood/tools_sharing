@@ -1,30 +1,25 @@
-# manual_tools
+# Tools sharig
+## Landing page
 
-A new Flutter project.
+- We created landing page here so user can know more about the app and download it
+- Landing page is hosted in firebase hosting using [firebase cli](https://firebase.google.com/docs/cli#install_the_firebase_cli)
+- you can review it [here](https://tools-sharing-f91a6.web.app/)
+- You can review the landing page code in folder [landing_page](landing_page/)
 
-## Getting Started
+## Mobile app
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+- We implemented our mobile app using thses technologies
+   + Flutter for mobile development
+   + Firebase service called firestore as database and backend
+   + Firebase service called storage as file server
+   + Firebase authetication service to authenticate ad authorize our users
+- You can review the application code in folder [app](app/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
-## Assets
+## Files
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+- All required files for the deploma project are in the folder called [files](files/)
+   + File 1
+   + File 2
+   + File 3
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
-
-## Localization
-
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
-
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
