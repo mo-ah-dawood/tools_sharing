@@ -14,6 +14,7 @@
    + Firebase service called storage as file server
    + Firebase authetication service to authenticate ad authorize our users
 - You can review the application code in folder [app](app/)
+- You can find its prototype [here](https://miro.com/app/board/uXjVMDs6m1E=/?share_link_id=5948056734)
 
 
 ## Files
