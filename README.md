@@ -1,3 +1,7 @@
+```git
+run git clone https://github.com/mo-ah-dawood/tools_sharing
+```
+
 # Tools sharig
 ## Landing page
 
