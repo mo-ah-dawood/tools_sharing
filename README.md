@@ -1,7 +1,3 @@
-```git
-run git clone https://github.com/mo-ah-dawood/tools_sharing
-```
-
 # Tools sharig
 ## Landing page
 
@@ -28,3 +24,9 @@ run git clone https://github.com/mo-ah-dawood/tools_sharing
    + File 2
    + File 3
 
+
+
+### to clone this to your device run this command
+```git
+git clone https://github.com/mo-ah-dawood/tools_sharing
+```
