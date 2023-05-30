@@ -20,9 +20,10 @@
 ## Files
 
 - All required files for the deploma project are in the folder called [files](files/)
-   + File 1
-   + File 2
-   + File 3
+   + Basic COCOMO Model
+   + Project Skills 10 Questions
+   + Tools_Sharing_SRS_V6_Group 120
+   + Tools_Sharing_1st_semester project
 
 
 
