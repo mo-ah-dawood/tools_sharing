@@ -12,5 +12,5 @@
    + Firebase service called firestore as database and backend
    + Firebase service called storage as file server
    + Firebase authetication service to authenticate ad authorize our users
-- You can review the application code in folder [apps](apps/)
+- You can review the application code in folder [apps](app/)
 
