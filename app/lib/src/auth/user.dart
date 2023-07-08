@@ -56,6 +56,7 @@ class UserModel {
       'photo': photo,
       'emailVerified': emailVerified,
       'address': address?.toJson()?..removeWhere((k, v) => k == 'geojson'),
+      'providers': providers,
     };
   }
 
@@ -67,6 +68,9 @@ class UserModel {
       phone: map['phone'] ?? "",
       photo: map['photo'] ?? "",
       emailVerified: map['emailVerified'] == true,
+      providers: map['providers'] == null
+          ? []
+          : (map['providers'] as List).map((e) => e.toString()).toList(),
       address: map['address'] != null
           ? FormattedLocation.fromJson(map['address'] as Map<String, dynamic>)
           : null,
@@ -113,12 +117,19 @@ class UserModel {
 extension UserExt on User {
   UserModel toUserModel() {
     return UserModel(
-        id: uid,
-        name: displayName ?? "",
-        email: email ?? "",
-        phone: phoneNumber ?? "",
-        photo: photoURL ?? "",
-        emailVerified: emailVerified,
-        providers: providerData.map((e) => e.providerId).toList());
+      id: uid,
+      name: displayName ?? "",
+      email: email ?? "",
+      phone: phoneNumber ?? "",
+      photo: photoURL ?? "",
+      emailVerified: emailVerified,
+      providers: providerData.map((e) => e.providerId).toList(),
+    );
+  }
+
+  UserModel withProvider(UserModel model) {
+    return model.copyWith(
+      providers: providerData.map((e) => e.providerId).toList(),
+    );
   }
 }

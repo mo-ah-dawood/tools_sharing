@@ -31,7 +31,10 @@ class CartController with ChangeNotifier {
   double get totalPrice => _model?.price ?? 0;
   void listen() {
     _subscription?.cancel();
-    _subscription = service.myCart(authController.user!).listen(_onDataChanged);
+    if (authController.user != null) {
+      _subscription =
+          service.myCart(authController.user!).listen(_onDataChanged);
+    }
   }
 
   void _listenTools() {

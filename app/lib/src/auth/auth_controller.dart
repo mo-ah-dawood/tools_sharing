@@ -42,6 +42,7 @@ class AuthController with ChangeNotifier, WidgetsBindingObserver {
   _lisntenUser(User? event) {
     _listner2?.cancel();
     _user = event?.toUserModel();
+    notifyListeners();
     _listner2 = FirebaseFirestore.instance
         .collection(AuthService.collection)
         .doc(_user!.id)
@@ -120,15 +121,22 @@ class AuthController with ChangeNotifier, WidgetsBindingObserver {
 
   Future<void> loginWithGoogle(BuildContext context) async {
     var res = await _handle(context, _authService.loginWithGoogle());
-    if (!res.emailVerified && context.mounted) {
-      Navigator.of(context).pushReplacementNamed(ConfirmEmailView.routeName);
-    } else if (res.emailVerified && context.mounted) {
-      Navigator.of(context).pushReplacementNamed(MainScreenView.routeName);
-    }
+    Future.delayed(const Duration(milliseconds: 300)).then((value) {
+      if (!res.emailVerified && context.mounted) {
+        Navigator.of(context).pushReplacementNamed(ConfirmEmailView.routeName);
+      } else if (res.emailVerified && context.mounted) {
+        Navigator.of(context).pushReplacementNamed(MainScreenView.routeName);
+      }
+    });
   }
 
   Future<void> linkWithGoogle(BuildContext context) async {
     await _handle(context, _authService.linkWithGoogle());
+    var current = _authService.currentUser!;
+    FirebaseFirestore.instance
+        .collection(AuthService.collection)
+        .doc(_user!.id)
+        .update(current.withProvider(_user!).toMap());
   }
 
   Future<void> register(

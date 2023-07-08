@@ -4,7 +4,11 @@ import 'extensions.dart';
 class GoogleButton extends StatelessWidget {
   final String label;
   final Future Function() onPressed;
-  const GoogleButton({super.key, required this.label, required this.onPressed});
+  const GoogleButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {

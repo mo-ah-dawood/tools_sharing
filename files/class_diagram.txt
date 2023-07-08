@@ -1,0 +1,92 @@
+classDiagram
+class UserModel
+UserModel : +id String
+UserModel : +name String
+UserModel : +email String
+UserModel : +phone String
+UserModel : +photo String
+UserModel : +emailVerified bool
+UserModel : +address Location?
+UserModel o-- Location
+UserModel : +providers List~String~
+UserModel : +copyWith() UserModel
+UserModel : +toMap() Map
+UserModel : +fromMap(Map) UserModel
+
+class Transaction
+Transaction : +id String
+Transaction : +reference String
+Transaction : +value double
+Transaction : +type TransactionType
+Transaction o-- TransactionType
+Transaction o-- UserModel
+Transaction : +date Timestamp
+Transaction : +userId String
+Transaction : +copyWith() Transaction
+Transaction : +toMap() Map
+Transaction : +fromMap(Map) Transaction
+
+class TransactionType
+<<enumeration>> TransactionType
+TransactionType : +charge$ TransactionType
+TransactionType : +pay$ TransactionType
+TransactionType : +paid$ TransactionType
+TransactionType : +withdraw$ TransactionType
+
+
+class Tool
+Tool : +id String
+Tool : +name String
+Tool : +image String
+Tool : +description String
+Tool : +dayPrice double
+Tool : +userId String
+Tool : +condition String
+Tool : +manufacture String
+Tool : +categoryId String
+Tool : +endDate Timestamp?
+Tool : +isRented bool
+Tool o-- UserModel
+Tool o-- Category
+Tool : +copyWith() Tool
+Tool : +toMap() Map
+Tool : +fromMap(Map) Tool
+
+class Order
+Order : +id String
+Order : +date Timestamp
+Order : +recieved bool
+Order : +userId String
+Order : +items Set~OrderItem~
+Order : +price double
+Order o-- UserModel
+Order : +copyWith() Order
+Order : +toMap() Map
+Order : +fromMap(Map) Order
+
+class OrderItem
+OrderItem : +dayPrice double
+OrderItem : +days int
+OrderItem : +toolId String
+OrderItem : +userId String
+OrderItem : +received bool
+OrderItem : +price double
+OrderItem o-- Order
+OrderItem : +copyWith() OrderItem
+OrderItem : +toMap() Map
+OrderItem : +fromMap(Map) OrderItem
+
+class Category
+Category : +id String
+Category : +name String
+Category : +copyWith() Category
+Category : +toMap() Map
+Category : +fromMap(Map) Category
+
+class Location
+Location : +placeId String
+Location : +lat double
+Location : +lon double
+Location : +copyWith() Location
+Location : +toMap() Map
+Location : +fromMap(Map) Location

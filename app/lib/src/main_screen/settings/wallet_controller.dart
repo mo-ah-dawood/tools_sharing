@@ -20,8 +20,10 @@ class Walletontroller with ChangeNotifier {
       0.0, (previousValue, element) => previousValue + element.value);
   void listen() {
     _subscription?.cancel();
-    _subscription =
-        _service.stream(authController.user!).listen(_onDataChanged);
+    if (authController.user != null) {
+      _subscription =
+          _service.stream(authController.user!).listen(_onDataChanged);
+    }
   }
 
   void _onDataChanged(Iterable<Transaction> event) {

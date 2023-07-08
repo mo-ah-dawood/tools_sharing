@@ -10,7 +10,8 @@ class UserName extends StatelessWidget {
     return ListenableBuilder(
       listenable: MyApp.auth(context),
       builder: (BuildContext context, Widget? child) {
-        var user = MyApp.auth(context).user!;
+        var user = MyApp.auth(context).user;
+        if (user == null) return const SizedBox();
         return Text(AppLocalizations.of(context).welcome(user.name));
       },
     );
